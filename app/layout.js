@@ -1,6 +1,7 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Akatab, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/nav";
+import Footer from "./components/Footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const geistSans = Geist({
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
       >
         <Nav></Nav>
         {children}
+        <Footer />
       </body>
     </html>
   );

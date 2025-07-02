@@ -1,14 +1,14 @@
-import Image from "next/image";
+import Card from "./components/Card";
 import Carousel from "./components/Carousel";
-import Footer from "./components/Footer";
+
 
 
 export default function Home() {
   return (
     <>
     <Carousel />
-   <center><h1> Mr.Thiramet Khamja</h1></center>
-    <Footer />
+    <h1>Mr.Thiramet khamja</h1>
+    <Card />
     </>
   );
 }
