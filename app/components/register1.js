@@ -1,55 +1,8 @@
 "use client";
 
 import Head from "next/head";
-import { useEffect, useRef } from "react";
 
 export default function Register1() {
-  const cardRef = useRef(null);
-
-  useEffect(() => {
-    const card = cardRef.current;
-
-    let frameId = null;
-
-    const handleMouseMove = (e) => {
-      if (frameId) cancelAnimationFrame(frameId);
-
-      frameId = requestAnimationFrame(() => {
-        const { left, top, width, height } = card.getBoundingClientRect();
-        const x = e.clientX - left;
-        const y = e.clientY - top;
-
-        const rotateX = ((y / height) - 0.5) * 10;
-        const rotateY = ((x / width) - 0.5) * 10;
-
-        card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
-      });
-    };
-
-    const resetTransform = () => {
-      if (frameId) cancelAnimationFrame(frameId);
-      // เพิ่ม transition ยาวสำหรับตอนรีเซ็ต
-      card.style.transition = "transform 0.5s ease";
-      card.style.transform = `rotateX(0deg) rotateY(0deg)`;
-    };
-
-    const clearTransition = () => {
-      // ลด transition ลงตอน hover เพื่อให้การหมุนตามเมาส์สมูท
-      card.style.transition = "transform 0.1s ease";
-    };
-
-    card.addEventListener("mousemove", handleMouseMove);
-    card.addEventListener("mouseleave", resetTransform);
-    card.addEventListener("mouseenter", clearTransition);
-
-    return () => {
-      card.removeEventListener("mousemove", handleMouseMove);
-      card.removeEventListener("mouseleave", resetTransform);
-      card.removeEventListener("mouseenter", clearTransition);
-      if (frameId) cancelAnimationFrame(frameId);
-    };
-  }, []);
-
   return (
     <>
       <Head>
@@ -100,10 +53,8 @@ export default function Register1() {
           width: 100%;
           max-width: 700px;
           animation: fadeInUp 0.6s ease;
-          /* transition แบบสั้นตอน hover */
-          transition: transform 0.1s ease-in-out;
-          transform-style: preserve-3d;
-          will-change: transform; /* ช่วยให้ browser จัดการ animation ดีขึ้น */
+          /* ลบ effect หมุนออก */
+          /* transition และ transform-style เอาออก */
         }
 
         @keyframes fadeInUp {
@@ -159,7 +110,7 @@ export default function Register1() {
       `}</style>
 
       <div className="register-wrapper">
-        <div className="register-card" ref={cardRef}>
+        <div className="register-card">
           <h3 className="text-center mb-4 text-success">
             <i className="fas fa-user-plus me-2"></i>สมัครสมาชิก
           </h3>
