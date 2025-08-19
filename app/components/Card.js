@@ -7,33 +7,36 @@ export default function Card() {
     const cardData = [
         {
             id: 1,
-            image: "/images/Card/Card-04.png",
-            title: "รองเท้าหนัง",
-            description: "รองเท้าหนังแท้คุณภาพสูง ใส่สบาย ทนทาน เหมาะสำหรับงานทางการ",
-            price: "2,990",
-            originalPrice: "3,500",
+            image: "/images/Card/Card-07.png",
+            title: "Sougayilang",
+            description: "Sougayilang คันเบ็ด 2 ส่วน ยาว 1.8 เมตร / 6 ฟุต คาร์บอนแข็งแรง สำหรับเหยื่อปลอมและหมุน",
+            price: "266",
+            originalPrice: "350",
             rating: 4.8,
-            reviews: 127
+            reviews: 127,
+            videoUrl: "https://youtu.be/Iex0L9o4K1Q?si=OPGRUx9MxTEpzwVQ"
         },
         {
             id: 2,
-            image: "/images/Card/Card-05.png",
-            title: "รองเท้าแตะ",
-            description: "รองเท้าแตะสไตล์สปอร์ต วัสดุคุณภาพ น้ำหนักเบา ใส่สบายตลอดวัน",
-            price: "890",
-            originalPrice: "1,200",
+            image: "/images/Card/Card-08.png",
+            title: "ROLLFISH",
+            description: "ROLLFISH คันเบ็ดคาร์บอนไฟเบอร์ - คันเบ็ดพับได้เบาสุดพิเศษพร้อมปลายเร็ว, Fuji Guides - คันเบ็ดสปินนิ่ง ",
+            price: "2,547",
+            originalPrice: "3,160",
             rating: 4.5,
-            reviews: 89
+            reviews: 89,
+            videoUrl: "https://youtu.be/4IPd1-0FoU8?si=7ltnqcHVdnrgIrvO"
         },
         {
             id: 3,
-            image: "/images/Card/Card-06.png",
-            title: "รองเท้าช้างดาว",
-            description: "รองเท้าผ้าใบคลาสสิค สไตล์วินเทจ ใส่ได้ทุกโอกาส",
-            price: "150",
-            originalPrice: null,
+            image: "/images/Card/Card-09.png",
+            title: "Rooblinos RAPTOR II 27T",
+            description: "Rooblinos RAPTOR II 27T ทำจากใยคาร์บอนคุณภาพสูง - 70.87 นิ้ว, 2 ส่วน, สปินนิ่งและแคสติ้ง, เบา, ทนทาน, เหมาะสำหรับทุกชนิดของปลา",
+            price: "1,363",
+            originalPrice: "2,852",
             rating: 4.2,
-            reviews: 234
+            reviews: 234,
+            videoUrl: "https://youtu.be/ZPgj_PB1eYQ?si=LeesOCWYK1LaXuD8"
         }
     ];
 
@@ -159,6 +162,9 @@ export default function Card() {
                     width: 100%;
                     position: relative;
                     overflow: hidden;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
                 }
 
                 .btn-enhanced:hover {
@@ -205,11 +211,11 @@ export default function Card() {
                     .card-image-container {
                         height: 200px;
                     }
-                    
+
                     .section-title h2 {
                         font-size: 2rem;
                     }
-                    
+
                     .container-enhanced {
                         padding: 2rem 1rem;
                     }
@@ -240,17 +246,17 @@ export default function Card() {
                     transform: scale(1.1);
                 }
             `}</style>
-            
+
             <div className="container-enhanced">
                 <div className="section-title">
-                    <h2>🛍️ สินค้าแนะนำ</h2>
-                    <p>เลือกสรรสินค้าคุณภาพดี ราคาดี จากร้านของเรา</p>
+                    <h2>🛍️Fishing Rod Review</h2>
+                    <p>กดลิงค์เพื่อดูคลิปวิดิโอ</p>
                 </div>
-                
+
                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                     {cardData.map((item, index) => (
                         <div className="col" key={item.id}>
-                            <div 
+                            <div
                                 className="card h-100 enhanced-card"
                                 onMouseEnter={() => setHoveredCard(index)}
                                 onMouseLeave={() => setHoveredCard(null)}
@@ -259,27 +265,27 @@ export default function Card() {
                                     <button className="heart-icon">
                                         {hoveredCard === index ? '❤️' : '🤍'}
                                     </button>
-                                    
+
                                     {item.originalPrice && (
                                         <div className="discount-badge">
                                             -{Math.round((1 - parseFloat(item.price.replace(',', '')) / parseFloat(item.originalPrice.replace(',', ''))) * 100)}%
                                         </div>
                                     )}
-                                    
-                                    <img 
-                                        src={item.image} 
-                                        className="enhanced-card-img" 
+
+                                    <img
+                                        src={item.image}
+                                        className="enhanced-card-img"
                                         alt={item.title}
                                         onError={(e) => {
                                             e.target.src = `https://via.placeholder.com/300x250/f1f5f9/64748b?text=${encodeURIComponent(item.title)}`;
                                         }}
                                     />
                                 </div>
-                                
+
                                 <div className="card-body-enhanced">
                                     <h5 className="card-title-enhanced">{item.title}</h5>
                                     <p className="card-description">{item.description}</p>
-                                    
+
                                     <div className="rating-container">
                                         <div className="stars">
                                             {'★'.repeat(Math.floor(item.rating))}
@@ -289,21 +295,22 @@ export default function Card() {
                                             {item.rating} ({item.reviews} รีวิว)
                                         </span>
                                     </div>
-                                    
+
                                     <div className="price-container">
-                                        <span className="current-price">
-                                            ฿{item.price}
-                                        </span>
+                                        <span className="current-price">฿{item.price}</span>
                                         {item.originalPrice && (
-                                            <span className="original-price">
-                                                ฿{item.originalPrice}
-                                            </span>
+                                            <span className="original-price">฿{item.originalPrice}</span>
                                         )}
                                     </div>
-                                    
-                                    <button className="btn btn-enhanced">
-                                        🛒 เพิ่มลงตะกร้า
-                                    </button>
+
+                                    <a
+                                        className="btn btn-enhanced"
+                                        href={item.videoUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        กดเพื่อดูรีวิว
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -311,5 +318,5 @@ export default function Card() {
                 </div>
             </div>
         </>
-    )
+    );
 }
