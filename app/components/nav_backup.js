@@ -28,7 +28,7 @@ export default function Nav() {
           </li>
           <li>
             <Link href="/service" className="hover:text-blue-600 transition">
-              sevice
+              service
             </Link>
           </li>
         </ul>

@@ -24,7 +24,7 @@ export default function Card() {
             price: "2,547",
             originalPrice: "3,160",
             rating: 4.5,
-            reviews: 89,
+            reviews: 89,    
             videoUrl: "https://youtu.be/4IPd1-0FoU8?si=7ltnqcHVdnrgIrvO"
         },
         {
@@ -188,14 +188,14 @@ export default function Card() {
                     font-size: 2.5rem;
                     font-weight: 700;
                     margin-bottom: 0.5rem;
-                    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+                    background: linear-gradient(135deg, #0033FF, #1d4ed8);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     background-clip: text;
                 }
 
                 .section-title p {
-                    color: #64748b;
+                    color: #0000FF  ;
                     font-size: 1.1rem;
                     max-width: 600px;
                     margin: 0 auto;
