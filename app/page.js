@@ -179,8 +179,6 @@ export default function Home() {
 
       <Carousel />
 
-      <h1 className="home-title">ยินดีต้อนรับสู่ Fishing Rod</h1>
-
       <div className="card-section">
         <Card />
       </div>
