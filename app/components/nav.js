@@ -14,7 +14,6 @@ export default function Nav() {
           border-top: 4px solid #ffffff55;
           border-bottom: 4px solid #ffffff55;
           padding: 0.5rem 2rem;
-          font-weight: bold; /* 🔥 ทำให้ข้อความทั้งหมดใน navbar-wrapper หนา */
         }
 
         .custom-navbar .nav-link,
@@ -22,7 +21,7 @@ export default function Nav() {
           color: white;
           text-decoration: none;
           transition: color 0.3s ease, transform 0.3s ease;
-          font-weight: bold; /* 🔥 ตัวหนาเพิ่มความชัดเจน */
+          font-weight: 700;
         }
 
         .custom-navbar .nav-link:hover,
@@ -32,7 +31,7 @@ export default function Nav() {
         }
 
         .navbar-brand {
-          font-weight: bold;
+          font-weight: 800;
           font-size: 1.5rem;
         }
 
@@ -62,11 +61,6 @@ export default function Nav() {
         .search-form button {
           border-radius: 0.25rem;
           transition: all 0.3s ease;
-          font-weight: bold; /* 🔥 ตัวหนาใน input & ปุ่มค้นหา */
-        }
-
-        .search-form input::placeholder {
-          font-weight: bold; /* 🔥 ตัวหนาใน placeholder */
         }
 
         .search-form input:focus {
@@ -80,7 +74,7 @@ export default function Nav() {
 
         .btn {
           transition: all 0.3s ease;
-          font-weight: bold; /* 🔥 ตัวหนาในปุ่มทั้งหมด */
+          font-weight: 600;
         }
 
         .btn:hover {
@@ -109,13 +103,13 @@ export default function Nav() {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span className="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon" />
             </button>
 
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <Link href="/" className="nav-link active">
+                  <Link href="/" className="nav-link">
                     หน้าแรก
                   </Link>
                 </li>
